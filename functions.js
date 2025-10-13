@@ -31,3 +31,59 @@ function greetings(name = "Guest") {
 
 greetings(); // Hello, Guest!
 greetings("Anna"); // Hello, Anna!
+
+// Arrow Functions
+
+const greeting = (name) => {
+  console.log("Hello, " + name + "!");
+};
+
+greeting("Lemayian");
+
+// When the parameter list has only one parameter
+
+const greetingz = (name) => {
+  console.log("Hello, " + name + "!");
+};
+
+greetingz("Prince");
+
+// When the arrow function has no parameters you must use parentheses as so
+
+const salamu = () => {
+  console.log("Hello!");
+};
+
+salamu();
+
+// If the function has only a single line of code
+
+const salimu = (name) => console.log("Hello, " + name + "!");
+
+salimu("Lemayian");
+
+// Example
+/*
+
+const calculateArea = (width, height) => {
+  const area = width * height;
+  return area;
+  
+};
+*/
+
+// console.log(calculateArea(5, 3));
+
+// Cleaning up our code a little bit
+
+/*
+const calculateArea = (width, height) => {
+  return width * height;
+};
+
+console.log(calculateArea(2, 5));
+*/
+
+const calculateArea = (width, height) => width * height;
+
+console.log(calculateArea(3, 5));
