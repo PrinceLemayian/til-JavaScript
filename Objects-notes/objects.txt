@@ -72,3 +72,185 @@ It's worth noting that objects in JavaScript are incredibly powerful and versati
 Understanding objects and how to work with them is crucial in JavaScript because they're used extensively throughout the language and in many JavaScript libraries and frameworks.
 
 As you continue to learn and work with JavaScript, you'll find that mastering objects opens up a world of possibilities for creating complex and powerful applications.
+
+How Can You Remove Properties from an Object?
+There are several ways to remove properties from an object, with the delete operator being the most straightforward and commonly used method.
+
+When you use delete, it removes the selected property from the object. Here's an example of how to use the delete operator:
+
+const person = {
+  name: "Alice",
+  age: 30,
+  job: "Engineer"
+};
+
+delete person.job;
+
+console.log(person.job); // undefined
+In this example, we start with a person object that has three properties: name, age, and job. Then, we use the delete operator to remove the job property. After the deletion, the person object no longer has the job property.
+
+Another way to remove properties is by using destructuring assignment with rest parameters. This approach doesn't actually delete the property, but it creates a new object without the specified properties:
+
+const person = {
+  name: "Bob",
+  age: 25,
+  job: "Designer",
+  city: "New York"
+};
+
+const { job, city, ...remainingProperties } = person;
+
+// { name: "Bob", age: 25 }
+console.log(remainingProperties);
+In this example, we use destructuring to extract job and city from the person object, and collect the remaining properties into a new object called remainingProperties. This creates a new object without the job and city properties.
+
+Understanding how to remove properties from objects is an important skill in JavaScript programming. It allows you to manipulate objects dynamically, and clean up unnecessary data.
+
+How to Check If an Object Has a Property?
+In JavaScript, there are several ways to check if an object has a specific property. Understanding these methods is important for working effectively with objects, especially when you're dealing with data from external sources or when you need to ensure certain properties exist before using them.
+
+We'll explore three common approaches: the hasOwnProperty() method, the in operator, and checking against undefined.
+
+Let's start with the hasOwnProperty() method. This method returns a boolean indicating whether the object has the specified property as its own property. Here's an example:
+
+const person = {
+  name: "Alice",
+  age: 30
+};
+
+console.log(person.hasOwnProperty("name")); // true
+console.log(person.hasOwnProperty("job")); // false
+In this example, we have an object called person with two properties: name and age. To check if name is a property in the person object, we use the hasOwnProperty() method. Since name is a property, it will return true. But when we use the hasOwnProperty() to check if job is a property, it will return false because it does not exist in the object.
+
+Another way to check for the existence of a property in an object is to use the in operator. Like hasOwnProperty(), the in operator will return true if the property exists on the object. Here's how you can use it:
+
+const person = {
+  name: "Bob",
+  age: 25
+};
+console.log("name" in person);  // true
+In this example, "name" in person returns true because name is a property of person.
+
+The third method involves checking if a property is undefined. This approach can be useful, but it has some limitations. Here's an example:
+
+const car = {
+  brand: "Toyota",
+  model: "Corolla",
+  year: 2020
+};
+
+console.log(car.brand !== undefined); // true
+console.log(car.color !== undefined); // false
+In this code, we check if car.brand and car.color are not undefined. This works because accessing a non-existent property on an object returns undefined. However, this method can give false negatives if a property explicitly has the value undefined.
+
+In practice, the choice between these methods often depends on the specific requirements of your code. Understanding the differences between them will help you make the right choice in different scenarios.
+
+How Do You Work with Accessing Properties from Nested Objects and Arrays in Objects?
+When working with JavaScript, you'll often encounter complex data structures that involve nested objects and arrays within objects. These structures can represent rich, hierarchical data, but they also require a clear understanding of how to access and manipulate the data within them. Let's explore how to navigate these nested structures effectively.
+
+Accessing properties from nested objects involves using the dot notation or bracket notation, much like accessing properties from simple objects. However, you'll need to chain these accessors to drill down into the nested structure.
+
+For example, let's consider a nested object representing a person with contact information:
+
+const person = {
+  name: "Alice",
+  age: 30,
+  contact: {
+    email: "alice@example.com",
+    phone: {
+      home: "123-456-7890",
+      work: "098-765-4321"
+    }
+  }
+};
+To access Alice's work phone number, you would chain the property accessors like this:
+
+console.log(person.contact.phone.work); // "098-765-4321"
+You can also use bracket notation, which is particularly useful when property names include spaces or special characters, or when you're using variables to access properties:
+
+console.log(person['contact']['phone']['work']); // "098-765-4321"
+Now, let’s take a look at how we can access data where one of the object properties has the value of an array. Here is a modified person object that includes an array of addresses:
+
+const person = {
+  name: "Alice",
+  age: 30,
+  addresses: [
+    { type: "home", street: "123 Main St", city: "Anytown" },
+    { type: "work", street: "456 Market St", city: "Workville" }
+  ]
+};
+Here is an example of how to access Alice's work address city:
+
+console.log(person.addresses[1].city); // "Workville"
+In this example, person.addresses refers to the array of addresses. To access the second address in that array, we use bracket notation and index 1. Then, we use dot notation to access the city from that address object.
+
+Understanding how to access properties in nested objects and arrays is essential when working with complex data structures. In future workshops and labs, you will have the opportunity to practice working with these types of data structures.
+
+What Is the Difference Between Primitive and Non-Primitive Data Types?
+In JavaScript, understanding the difference between primitive and non-primitive data types is important for writing efficient and bug-free code.
+
+These two categories of data types behave differently in terms of how they are stored in memory and how they are manipulated in your programs.
+
+Primitive data types are the simplest form of data in JavaScript. They include numbers, strings, booleans, null, undefined, and symbols. These types are called "primitive" because they represent single values and are not objects.
+
+When you work with primitive data types, you're dealing directly with their values. For example, when you create a variable with a primitive value, that value is stored directly in the variable.
+
+Primitive values are immutable, which means once they are created, their value cannot be changed. However, you can reassign a new value to the variable. Here's an example of working with primitive data types:
+
+let num1 = 5;
+let num2 = num1;
+num1 = 10;
+
+console.log(num2); // 5
+In this example, we are assigning a primitive value (5) from num1 to num2. This creates an independent copy of the value. As a result, any changes made to the original variable (num1) do not affect the copy (num2).
+
+Non-primitive data types, on the other hand, are more complex. In JavaScript, these are objects, which include regular objects, arrays, and functions. Unlike primitives, non-primitive types can hold multiple values as properties or elements.
+
+When you create a variable with a non-primitive value, what's stored in the variable is actually a reference to the location in memory where the object is stored, not the object itself. This leads to some important differences in behavior. Here's an example with non-primitive types:
+
+const originalPerson = { name: "John", age: 30 };
+const copiedPerson = originalPerson;
+
+originalPerson.age = 31;
+
+console.log(copiedPerson.age); // 31
+In this example we have an object called originalPerson with two properties of name and age. We then assign the originalPerson object to a variable called copiedPerson.
+
+Then we update the age value for the originalPerson object. When we log the age property of copiedPerson object it shows the updated value.
+
+But why is that happening? This occurs because both originalPerson and copiedPerson are referencing the same object in memory.
+
+In JavaScript, when you assign an object to another variable, you're copying the reference to the object, not the object itself. This is known as shallow copying by reference. As a result, any changes made to the object through one reference are reflected in all references to that object.
+
+As you continue to work with JavaScript, you'll encounter many situations where understanding the difference between primitive and non-primitive types is important. It's a fundamental concept that underlies many aspects of the language and is key to writing efficient and correct code.
+
+What Is the Difference Between Functions and Object Methods?
+In JavaScript, functions and object methods are both ways to encapsulate reusable code, but they have some key differences in how they are defined, used, and the context in which they operate. Understanding these differences is crucial for writing effective and organized JavaScript code.
+
+As you learned in earlier modules, functions are reusable blocks of code that perform a specific task:
+
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+console.log(greet("Alice")); // "Hello, Alice!"
+Object methods, on the other hand, are functions that are associated with an object. They are defined as properties of an object and can access and manipulate the object's data. Here's an example of an object with a method:
+
+const person = {
+    name: "Bob",
+    age: 30,
+    sayHello: function() {
+        return "Hello, my name is " + this.name;
+    }
+};
+
+console.log(person.sayHello()); // "Hello, my name is Bob"
+In this example, sayHello is a method of the person object. The this keyword allows the sayHello method to access the properties of the object named person. You will learn more about the this keyword in future lessons.
+
+A difference between functions and methods is how they are invoked. Functions are called by their name, while methods are called using dot notation on the object they belong to. For example, we call the greet function as greet("Alice"), but we call the sayHello method as person.sayHello().
+
+Another important difference is the context in which they operate. Regular functions have their own scope, but they don't have a built-in reference to any particular object. Methods, however, are bound to their object and can access its properties and other methods using the this keyword.
+
+A key point to note is that, methods help in organizing code into logical objects, while functions are used for more general, reusable code.
+
+Understanding the difference between functions and object methods is important as you progress in your JavaScript journey. While they may seem similar at first, recognizing when to use each will help you write more organized, efficient, and better code.
+
