@@ -67,3 +67,13 @@ cinema.processBooking({
   customerName: "Prince",
   seats: 1,
 });
+
+// Mutating variables
+
+let favoriteGenre = "Horror";
+let favoriteSnack = "Soda";
+({ favoriteGenre = genres[0], favoriteSnack = snacks[0] } = {
+  favoriteGenre: genres[2],
+  favoriteSnack: snacks[1],
+});
+console.log(favoriteGenre, favoriteSnack);
