@@ -50,3 +50,20 @@ const {
   sat: { first: openingShow, last: closingShow },
 } = cinema.showTimes;
 console.log(`Saturday shows run from ${openingShow}:00 to ${closingShow}:00`);
+
+// Destructured function parameter (Full booking)
+
+cinema.processBooking({
+  customerName: "Lemayian",
+  time: "19:30",
+  showIndex: 1,
+  snackIndex: 0,
+  seats: 2,
+});
+
+// Destructured function parameter (with defaults kicking in)
+
+cinema.processBooking({
+  customerName: "Prince",
+  seats: 1,
+});
