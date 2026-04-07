@@ -43,3 +43,10 @@ console.log(cinemaName, schedule);
 
 const { vipLounge = "Not Available", snackMenu: snacks = [] } = cinema;
 console.log(vipLounge, snacks);
+
+// Nested Destructuring
+
+const {
+  sat: { first: openingShow, last: closingShow },
+} = cinema.showTimes;
+console.log(`Saturday shows run from ${openingShow}:00 to ${closingShow}:00`);
