@@ -33,3 +33,8 @@ const cinema = {
 
 const { name, location: cinemaLocation, genres } = cinema;
 console.log(name, cinemaLocation, genres);
+
+// Renaming
+
+const { name: cinemaName, showTimes: schedule } = cinema;
+console.log(cinemaName, schedule);
