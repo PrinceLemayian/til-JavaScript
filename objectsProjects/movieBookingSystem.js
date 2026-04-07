@@ -38,3 +38,8 @@ console.log(name, cinemaLocation, genres);
 
 const { name: cinemaName, showTimes: schedule } = cinema;
 console.log(cinemaName, schedule);
+
+// Default values
+
+const { vipLounge = "Not Available", snackMenu: snacks = [] } = cinema;
+console.log(vipLounge, snacks);
