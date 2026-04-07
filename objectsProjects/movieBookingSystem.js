@@ -77,3 +77,8 @@ let favoriteSnack = "Soda";
   favoriteSnack: snacks[1],
 });
 console.log(favoriteGenre, favoriteSnack);
+
+// Book ticket - returns an array, destructure the result
+
+const [chosenSnack, chosenMovie] = cinema.bookTicket(1, 2);
+console.log(`You're watching "${chosenMovie}" with ${chosenSnack}. Enjoy!`);
