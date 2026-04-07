@@ -28,3 +28,8 @@ const cinema = {
     );
   },
 };
+
+// Basic Destructuring
+
+const { name, location: cinemaLocation, genres } = cinema;
+console.log(name, cinemaLocation, genres);
