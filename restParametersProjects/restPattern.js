@@ -40,7 +40,14 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`,
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
+
+// Destructuring
 
 // SPREAD, because on right side of =
 const arr = [1, 2, ...[3, 4]];
@@ -54,3 +61,24 @@ const [pizza, , risotto, ...otherFoods] = [
   ...restaurant.starterMenu,
 ];
 console.log(pizza, risotto, otherFoods);
+
+// Objects
+
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// functions
+// To add an arbitrary amount of numbers as arguments
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
