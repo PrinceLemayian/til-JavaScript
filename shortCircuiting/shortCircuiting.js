@@ -1,3 +1,5 @@
+"use strict";
+
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -63,6 +65,12 @@ console.log(guests1);
 // Using short circuiting
 const guests2 = restaurant.numGuests || 10;
 console.log(guests2);
+
+// Nullish Coalescing Operator
+// Null values - null, undefined (NOT 0 or '')
+
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
 
 console.log("---- AND ----");
 
