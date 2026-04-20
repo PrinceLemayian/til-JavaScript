@@ -18,3 +18,10 @@ const transformer = function (str, fn) {
 
 transformer(`Javascript is the best!`, upperFirstWord);
 transformer(`Javascript is the best!`, oneWord);
+
+const high5 = function () {
+  console.log("✋🏾");
+};
+document.body.addEventListener("click", high5);
+
+[1, 2, 3, 4].forEach(high5);
