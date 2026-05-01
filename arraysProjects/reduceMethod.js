@@ -15,3 +15,10 @@ console.log(accBalance);
 const balances = movements.reduce((acc, curr) => acc + curr);
 
 console.log(balances);
+
+// Maximum value
+const max = movements.reduce(
+  (acc, mov) => (acc > mov ? acc : mov),
+  movements[0],
+);
+console.log(max);
