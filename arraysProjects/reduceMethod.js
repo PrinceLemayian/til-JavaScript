@@ -12,7 +12,7 @@ let accBalance = 0;
 for (const mov of movements) accBalance += mov;
 console.log(accBalance);
 
-const balances = movements.reduce((acc, curr) => acc + curr);
+const balances = movements.reduce((acc, curr) => acc + curr, 0);
 
 console.log(balances);
 
