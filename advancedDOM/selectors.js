@@ -37,3 +37,30 @@ document
     // message.remove();
     message.parentElement.removeChild(message);
   });
+
+// Styles
+message.style.backgroundColor = "#37383d";
+message.style.width = "120%";
+
+console.log(getComputedStyle(message).color);
+message.style.height =
+  Number.parseFloat(getComputedStyle(message).height, 10) + 30 + "px";
+
+document.documentElement.style.setProperty("--color-primary", "orangered");
+
+// Attributes
+const logo = document.querySelector(".nav__logo");
+console.log(logo.alt);
+console.log(logo.src);
+
+// Non-standard
+console.log(logo.designer);
+console.log(logo.getAttribute("designer"));
+logo.setAttribute("company", "Bankist");
+
+console.log(logo.src); // Absolute path
+console.log(logo.setAttribute("src")); // Relative path
+
+const link = document.querySelector(".nav__link--btn");
+console.log(link.href);
+console.log(link.getAttribute("href"));
