@@ -64,3 +64,15 @@ console.log(logo.setAttribute("src")); // Relative path
 const link = document.querySelector(".nav__link--btn");
 console.log(link.href);
 console.log(link.getAttribute("href"));
+
+// Data Attributes
+console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add("c");
+logo.classList.remove("c");
+logo.classList.toggle("c");
+logo.classList.contains("c"); // not includes
+
+// Don't use
+logo.className = "jonas";
